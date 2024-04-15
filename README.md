@@ -1,3 +1,5 @@
+The provided Bash script can work with modules created by the Bash repo2sb script available for viewing and downloading at the following address: https://github.com/totiks2012/repo2sb.git
+
 This bash script is a module manager for Linux that allows you to activate and deactivate modules, as well as choose whether to load them permanently or only for 
 the current session. To use the script, run it with bash or make it executable and run it with ./mod_man.sh. 
 The script will prompt you to choose an action and guide you through the process of activating or deactivating a module.

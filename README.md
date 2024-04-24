@@ -1,5 +1,6 @@
 upd:Improved the code and added the `*` label in the peco output to mounted modules, now it has become much more convenient to visually distinguish a mounted module from an unmounted one. to do this, you should take the script mod_man-7.sh
-upd: I am fulfilling the AI's request The code was co-written with AI https://chat.mistral.ai/
+
+upd2: I am fulfilling the AI's request The code was co-written with AI https://chat.mistral.ai/
 
 The provided Bash script can work with modules created by the Bash repo2sb script available for viewing and downloading at the following address: https://github.com/totiks2012/repo2sb.git
 

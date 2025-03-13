@@ -1,6 +1,7 @@
 upd:13-03-25
 ------------
 en
+------------
 The script has been heavily reworked. Now it is a full-fledged GUI tool, on tcl/tk, which covers all aspects from creating modules from apt or a directory to connecting them. Below is a description and instructions for the updated project.
 
 
@@ -85,6 +86,7 @@ Activate the module using the Activate button → it is connected via tmpfs and 
 upd:13-03-25
 -----------
 rus
+-----------
 Скрипт был сильно переделан. Теперь это полноценый GUI инструмент, на tcl/tk  который охватывает все аспекты от создания модулей из apt или каталога,до их подключения. Ниже описание и инструкции обновленого проекта.
 
 Readmy-latest

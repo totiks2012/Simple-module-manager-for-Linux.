@@ -10,6 +10,7 @@ Readmy-last
 Modules for connecting from the APT package or directories, used in Russian/English, dark/light themes and tmpfs configuration for optimizing RAM.
 Main features
 Graphical interface: Control via Tk.
+**
 Creating modules: From APT or directories.
 Symlinks and tmpfs: Easy to connect and fast.
 Fuzzy Finder: Fuzzy package search.

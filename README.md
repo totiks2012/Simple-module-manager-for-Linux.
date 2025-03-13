@@ -5,84 +5,145 @@ en
 The script has been heavily reworked. Now it is a full-fledged GUI tool, on tcl/tk, which covers all aspects from creating modules from apt or a directory to connecting them. Below is a description and instructions for the updated project.
 
 
-Readmy-last
-"Module Manager" is a tool with a graphical interface (GUI) in Tcl/Tk for managing portable modules in Linux. It allows you to create, activate, deactivate and remove modules - compressed SquashFS images that are mounted, copied to tmpfs and connected via symlinks. A project for comprehensive work with isolated applications, combining all functions in one convenient interface.
-Modules for connecting from the APT package or directories, used in Russian/English, dark/light themes and tmpfs configuration for optimizing RAM.
-Main features
-Graphical interface: Control via Tk.
-**
-Creating modules: From APT or directories.
-Symlinks and tmpfs: Easy to connect and fast.
-Fuzzy Finder: Fuzzy package search.
-Customization: Themes, languages, font (Ctrl+= / Ctrl+-).
-All in one: Single tool.
-Comparison with other technologies
-What is better about AUFS and OverlayFS?
-Modernity: AUFS is outdated, enabled from the kernel, nested in the configuration. The module manager uses SquashFS.
-Management: OverlayFS is difficult to control layers, the module manager uses symlinks and tmpfs.
-Isolation: Autonomous modules without interference.
-Performance: tmpfs degrades performance.
-Simple: Everything is controlled from the GUI.
-How it works: Modules are mounted as SquashFS in /mnt/<module_name>, copied to tmpfs (e.g. /tmp/<module_name>), and then symlinked to system directories (e.g. /usr/bin). This is tight control and speed.
-Compared to AppImage
-Similarities: Portable applications.
-Differences: AppImage is a single file, the module manager is SquashFS with tmpfs and GUI management. Creation from APT/directories instead of assembly.
+# Script Update
 
-Advantages
-Convenience: Intuitive interface.
-Flexibility: Creation and activation from GUI.
-Speed: Uses tmpfs.
-Simplicity: Symlinks instead of layers.
-All in one: Single tool.
-obtained
-Dependencies: Requires Tcl/Tk, mksquashfs, etc.
-Complexity: Setup for beginners.
-Linux-specific: Depends on SquashFS/tmpfs.
-Dependency
-Tcl/Tk: For the GUI.
-sudo apt install tcl tk
-sqashfs-tools: For SquashFS.
-sudo apt install squshfs-tools
-wget: For downloading .deb.
+The script has been heavily reworked. Now it is a full-fledged GUI tool on Tcl/Tk, which covers all aspects from creating modules from APT or a directory to connecting them. Below is a description and instructions for the updated project.
+
+## Readme-last
+
+### "Module Manager"
+
+"Module Manager" is a tool with a graphical interface (GUI) in Tcl/Tk for managing portable modules in Linux. It allows you to create, activate, deactivate, and remove modules — compressed SquashFS images that are mounted, copied to tmpfs, and connected via symlinks. A project for comprehensive work with isolated applications, combining all functions in one convenient interface.
+
+- **Modules**: Created from APT packages or directories.
+- **Localization**: Supports Russian/English.
+- **Themes**: Dark/light themes.
+- **Optimization**: tmpfs configuration for optimizing RAM.
+
+### Main Features
+
+- **Graphical Interface**: Controlled via Tk.
+- **Creating Modules**: From APT or directories.
+- **Symlinks and tmpfs**: Easy connection and high speed.
+- **Fuzzy Finder**: Fuzzy package search.
+- **Customization**: Themes, languages, font adjustments (Ctrl+= / Ctrl+-).
+- **All in One**: Single tool for all tasks.
+
+### Comparison with Other Technologies
+
+#### What’s Better About AUFS and OverlayFS?
+
+- **Modernity**: AUFS is outdated, enabled from the kernel, nested in configuration. Module Manager uses SquashFS.
+- **Management**: OverlayFS is difficult for layer control; Module Manager uses symlinks and tmpfs.
+- **Isolation**: Autonomous modules without interference.
+- **Performance**: tmpfs can degrade performance.
+- **Simplicity**: Everything is controlled via GUI.
+
+#### How It Works
+
+Modules are mounted as SquashFS in `/mnt/<module_name>`, copied to tmpfs (e.g., `/tmp/<module_name>`), and then symlinked to system directories (e.g., `/usr/bin`). This ensures tight control and speed.
+
+#### Compared to AppImage
+
+- **Similarities**: Both support portable applications.
+- **Differences**: AppImage is a single file, while Module Manager uses SquashFS with tmpfs and GUI management. Creation from APT/directories instead of assembly.
+
+### Advantages
+
+- **Convenience**: Intuitive interface.
+- **Flexibility**: Creation and activation via GUI.
+- **Speed**: Utilizes tmpfs.
+- **Simplicity**: Symlinks instead of layers.
+- **All in One**: Single tool for all operations.
+
+### Disadvantages
+
+- **Dependencies**: Requires Tcl/Tk, mksquashfs, etc.
+- **Complexity**: Setup can be tricky for beginners.
+- **Linux-Specific**: Relies on SquashFS/tmpfs.
+
+## Dependencies
+
+- **Tcl/Tk**: For the GUI.
+  ```bash
+  sudo apt install tcl tk
+
+squashfs-tools: For SquashFS.
+bash
+
+sudo apt install squashfs-tools
+
+wget: For downloading .deb files.
+bash
+
 sudo apt install wget
-dpkg: For unpacking .deb.
-sudo apt install dpkg
-bash: For scripts.
-fd-find (optional): For searching.
-Installation: download the archive mod_man-sprites_G-18_themes+lang.tar and unpack it to a directory of your choice
 
+dpkg: For unpacking .deb files.
+bash
+
+sudo apt install dpkg
+
+bash: For scripts.
+
+fd-find (optional): For searching.
+
+Installation
+Download the archive mod_man-sprites_G-18_themes+lang.tar and unpack it to a directory of your choice.
 Usage
 Launch
 Launch via a single script:
-./LAUNCH.sh
-Prepares the system (creates directories, caches packages, removes broken links).
-Opens the GUI.
-Working in the graphical interface
-All actions are performed through the interface:
-Create a module: From APT or a directory.
-Activate: Permanently or per session.
-Deactivate: Disable a module.
-Delete: Modules or resources.
-Settings: Theme, language, tmpfs.
-Internal scripts (due to the GUI):
-owapt2sb.sh: Creates a module based on APT.
-active_module.sh: Mounts the module in tmpfs and connects it with symlinks.
-deactivate_module.sh: Disables the module, removes the symlink.
-2fst.tcl: Fuzzy search for selecting a package.
-Project structure
-LAUNCH.sh: Launch the program.
-m_m_s-g-18-lang+themes.tcl: Main graphical interface.
-owapt2sb.sh: Create modules.
-active_module.sh: Activation.
-deactivate_module.sh: Deactivation.
-2fst.tcl: Fuzzy finder.
-Examples
-Launch:
-beat
+bash
 
 ./LAUNCH.sh
-In the graphical interface, select "Create module", then through the fuzzy finder "firefox" → select firefox in the output list, press enter, firefox.sb is created.
-Activate the module using the Activate button → it is connected via tmpfs and symlinks.
+
+This script will:
+Prepare the system (create directories, cache packages, remove broken links).
+
+Open the GUI.
+
+Working in the Graphical Interface
+All actions are performed through the interface:
+Create a Module: From APT or a directory.
+
+Activate: Permanently or per session.
+
+Deactivate: Disable a module.
+
+Delete: Remove modules or resources.
+
+Settings: Theme, language, tmpfs configuration.
+
+Internal Scripts (Used by the GUI)
+owapt2sb.sh: Creates a module based on APT.
+
+active_module.sh: Mounts the module in tmpfs and connects it with symlinks.
+
+deactivate_module.sh: Disables the module and removes the symlink.
+
+2fst.tcl: Fuzzy search for selecting a package.
+
+Project Structure
+LAUNCH.sh: Launches the program.
+
+m_m_s-g-18-lang+themes.tcl: Main graphical interface.
+
+owapt2sb.sh: Creates modules.
+
+active_module.sh: Handles activation.
+
+deactivate_module.sh: Handles deactivation.
+
+2fst.tcl: Fuzzy finder implementation.
+
+Examples
+Launch
+bash
+
+./LAUNCH.sh
+
+In the graphical interface, select "Create module", then use the fuzzy finder to search for "firefox" → select firefox from the list, press Enter, and firefox.sb will be created. Activate the module using the "Activate" button → it will be connected via tmpfs and symlinks.
+
+
 
 upd:13-03-25
 -----------

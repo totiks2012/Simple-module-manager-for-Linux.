@@ -1,3 +1,7 @@
+upd:13-03-25
+this version in the main branch is very outdated
+there is a new version of the module manager, see the version in the branch latest
+---------------------------------------------------------------
 upd:25-06-24
 I redid the Deactivate section algorithm, changed the code related to the removal of symbolic links, now removes links not from the list, but searches for and removes directly thrown links, as a result, the code has become more stable and the script does not destroy the system.
 you should take the script of the latest version mod-man-9-r.sh
